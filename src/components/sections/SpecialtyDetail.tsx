@@ -1,11 +1,10 @@
 'use client';
 
 import type { FC } from 'react';
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { X, ChevronLeft } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
-import ProjectDossier from '@/components/sections/ProjectDossier';
 
 interface Project {
   id: string;
@@ -44,8 +43,6 @@ const SpecialtyDetail: FC<SpecialtyDetailProps> = ({
   selectedProjectId,
   layoutId,
 }) => {
-  const currentProject = projects.find((p) => p.id === selectedProjectId);
-  const projectIndex = projects.findIndex((p) => p.id === selectedProjectId);
   // Handle ESC key to close
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -322,29 +319,6 @@ const SpecialtyDetail: FC<SpecialtyDetailProps> = ({
 
       {/* Scroll Spacer for better UX */}
       <div className="h-12" />
-
-      {/* Project Dossier Modal - Nested within Specialty Detail */}
-      <AnimatePresence>
-        {currentProject && (
-          <ProjectDossier
-            project={currentProject}
-            layoutId={layoutId}
-            onClose={() => onSelectProject('')}
-            onNext={
-              projectIndex < projects.length - 1
-                ? () => onSelectProject(projects[projectIndex + 1].id)
-                : undefined
-            }
-            onPrev={
-              projectIndex > 0
-                ? () => onSelectProject(projects[projectIndex - 1].id)
-                : undefined
-            }
-            hasNext={projectIndex < projects.length - 1}
-            hasPrev={projectIndex > 0}
-          />
-        )}
-      </AnimatePresence>
     </motion.div>
   );
 };

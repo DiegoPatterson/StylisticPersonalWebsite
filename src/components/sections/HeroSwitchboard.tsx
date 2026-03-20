@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Brain, Network, Gamepad2, Shield } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 import SpecialtyDetail from '@/components/sections/SpecialtyDetail';
+import ProjectDossier from '@/components/sections/ProjectDossier';
 import { useHandoffScroll } from '@/hooks/useHandoffScroll';
 
 interface Project {
@@ -323,6 +324,34 @@ const HeroSwitchboard: FC = () => {
             setSelectedSpecialty(null);
             setSelectedProjectId(null);
           }}
+        />
+      )}
+    </AnimatePresence>
+
+    {/* Project Dossier Modal - Rendered at top level to escape SpecialtyDetail stacking context */}
+    <AnimatePresence>
+      {selectedProjectId && currentSpecialty && (
+        <ProjectDossier
+          project={currentSpecialty.projects.find((p) => p.id === selectedProjectId)!}
+          layoutId={currentSpecialty.layoutId}
+          onClose={() => setSelectedProjectId(null)}
+          onNext={() => {
+            const currentIndex = currentSpecialty.projects.findIndex((p) => p.id === selectedProjectId);
+            if (currentIndex < currentSpecialty.projects.length - 1) {
+              setSelectedProjectId(currentSpecialty.projects[currentIndex + 1].id);
+            }
+          }}
+          onPrev={() => {
+            const currentIndex = currentSpecialty.projects.findIndex((p) => p.id === selectedProjectId);
+            if (currentIndex > 0) {
+              setSelectedProjectId(currentSpecialty.projects[currentIndex - 1].id);
+            }
+          }}
+          hasNext={
+            currentSpecialty.projects.findIndex((p) => p.id === selectedProjectId) <
+            currentSpecialty.projects.length - 1
+          }
+          hasPrev={currentSpecialty.projects.findIndex((p) => p.id === selectedProjectId) > 0}
         />
       )}
     </AnimatePresence>
