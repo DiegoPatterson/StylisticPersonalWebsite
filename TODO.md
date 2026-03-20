@@ -32,7 +32,7 @@ Implemented a complete light mode theme that:
 ### Performance Optimization
 **Priority:** MEDIUM
 **Estimated Effort:** SMALL
-- [ ] Profile animations and scroll performance
+- [x] Dynamic module loading for modals (SpecialtyDetail & ProjectDossier)
 - [ ] Lazy load project images/videos
 - [ ] Optimize bundle size
 
@@ -72,4 +72,5 @@ None currently tracked - all critical bugs resolved! ✅
 
 - ✅ Fixed tiles disappearing on project click (stacking context fix)
 - ✅ Project dossier modal rendering
+- ✅ Dynamic module loading for modals (reduced initial bundle by 2 KB)
 

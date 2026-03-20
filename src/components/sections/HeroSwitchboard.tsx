@@ -4,11 +4,14 @@ import type { ReactNode, FC } from 'react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Brain, Network, Gamepad2, Shield } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { useTheme } from '@/context/ThemeContext';
 import GlassCard from '@/components/ui/GlassCard';
-import SpecialtyDetail from '@/components/sections/SpecialtyDetail';
-import ProjectDossier from '@/components/sections/ProjectDossier';
 import { useHandoffScroll } from '@/hooks/useHandoffScroll';
+
+// Dynamic imports for heavy modals - only loaded when opened
+const SpecialtyDetail = dynamic(() => import('@/components/sections/SpecialtyDetail'), { ssr: false });
+const ProjectDossier = dynamic(() => import('@/components/sections/ProjectDossier'), { ssr: false });
 
 interface Project {
   id: string;
