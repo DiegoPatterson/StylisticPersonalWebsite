@@ -4,6 +4,7 @@ import type { ReactNode, FC } from 'react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Brain, Network, Gamepad2, Shield } from 'lucide-react';
+import { useTheme } from '@/context/ThemeContext';
 import GlassCard from '@/components/ui/GlassCard';
 import SpecialtyDetail from '@/components/sections/SpecialtyDetail';
 import ProjectDossier from '@/components/sections/ProjectDossier';
@@ -172,6 +173,7 @@ const HeroSwitchboard: FC = () => {
   const scrollProgress = useHandoffScroll(0.4);
   const [selectedSpecialty, setSelectedSpecialty] = useState<string | null>(null);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const { theme } = useTheme();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -221,20 +223,20 @@ const HeroSwitchboard: FC = () => {
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tighter"
             variants={cardVariants}
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-leaf via-gold-leaf to-gold-leaf/70">
+            <span className={`text-transparent bg-clip-text bg-gradient-to-r ${theme === 'dark' ? 'from-gold-leaf via-gold-leaf to-gold-leaf/70' : 'from-diamond-600 via-diamond-600 to-diamond-500'}`}>
               DIEGO.
             </span>
           </motion.h1>
           
           <motion.p
-            className="text-gold-leaf font-mono text-xs md:text-sm tracking-widest uppercase mb-8"
+            className={`${theme === 'dark' ? 'text-gold-leaf' : 'text-diamond-800'} font-mono text-xs md:text-sm tracking-widest uppercase mb-8`}
             variants={cardVariants}
           >
             // SYSTEM STATUS: OPERATIONAL. MULTI-DISCIPLINARY CS & AI CONSULTANT
           </motion.p>
 
           <motion.div
-            className="h-px w-32 mx-auto mb-8 bg-gradient-to-r from-transparent via-gold-leaf/60 to-transparent"
+            className={`h-px w-32 mx-auto mb-8 bg-gradient-to-r from-transparent ${theme === 'dark' ? 'via-gold-leaf/60' : 'via-diamond-600/60'} to-transparent`}
             variants={cardVariants}
           />
         </motion.div>
@@ -257,31 +259,31 @@ const HeroSwitchboard: FC = () => {
               className="cursor-pointer"
               layoutId={specialty.layoutId}
             >
-              <GlassCard className="p-6 h-full flex flex-col justify-between hover:border-gold-leaf/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+              <GlassCard className={`p-6 h-full flex flex-col justify-between ${theme === 'dark' ? 'hover:border-gold-leaf/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)]' : 'hover:border-diamond-600/60 hover:shadow-[0_0_30px_rgba(122,155,255,0.2)]'}`}>
                 {/* Icon and Title */}
                 <div className="mb-6">
                   <motion.div
-                    className={`inline-block p-3 rounded border border-gold-leaf/30 mb-4 text-gold-leaf`}
+                    className={`inline-block p-3 rounded border ${theme === 'dark' ? 'border-gold-leaf/30 text-gold-leaf' : 'border-diamond-800/30 text-diamond-800'} mb-4`}
                     whileHover={{ rotate: 5, scale: 1.1 }}
                   >
                     {specialty.icon}
                   </motion.div>
-                  <h3 className="text-lg font-bold text-white mb-1 font-mono tracking-wide">
+                  <h3 className={`text-lg font-bold ${theme === 'dark' ? 'text-white' : 'text-diamond-900'} mb-1 font-mono tracking-wide`}>
                     {specialty.title}
                   </h3>
-                  <p className="text-gold-leaf/60 text-xs font-mono">
+                  <p className={`${theme === 'dark' ? 'text-gold-leaf/60' : 'text-diamond-800/60'} text-xs font-mono`}>
                     {specialty.subtitle}
                   </p>
                 </div>
 
                 {/* Description */}
-                <p className="text-obsidian-300 text-xs leading-relaxed flex-grow">
+                <p className={`${theme === 'dark' ? 'text-obsidian-300' : 'text-diamond-900/70'} text-xs leading-relaxed flex-grow`}>
                   {specialty.description}
                 </p>
 
                 {/* Bottom Accent Line */}
                 <motion.div
-                  className="mt-6 h-0.5 bg-gradient-to-r from-gold-leaf/60 to-transparent rounded-full"
+                  className={`mt-6 h-0.5 bg-gradient-to-r rounded-full ${theme === 'dark' ? 'from-gold-leaf/60 to-transparent' : 'from-diamond-600/60 to-transparent'}`}
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
@@ -298,7 +300,7 @@ const HeroSwitchboard: FC = () => {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <p className="text-xs text-gold-leaf font-mono tracking-widest uppercase">
+          <p className={`text-xs ${theme === 'dark' ? 'text-gold-leaf' : 'text-diamond-800'} font-mono tracking-widest uppercase`}>
             ↓ Scroll to Reveal Hardware Layer
           </p>
         </motion.div>

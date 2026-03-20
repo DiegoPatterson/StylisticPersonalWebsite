@@ -34,6 +34,28 @@ export default {
           900: "#6b3a15",
           leaf: "#D4AF37",
         },
+        diamond: {
+          50: "#ffffff",
+          100: "#f8f9ff",
+          200: "#e8ecff",
+          300: "#d4dcff",
+          400: "#b8c9ff",
+          500: "#9db5ff",
+          // TODO: diamond-600 (#7a9bff) is too light for light mode text (used in AboutMeReveal "HUMAN PROTOCOL..." section). Consider using diamond-700 or diamond-800 for better contrast
+          600: "#7a9bff",
+          700: "#5b82e8",
+          800: "#4a6bc9",
+          900: "#3a52a8",
+          950: "#2a3885",
+          // Platinum/Silver accents
+          platinum: "#e8e8e8",
+          silver: "#c0c0c0",
+          lightsilver: "#f0f0f0",
+          // Iridescent colors
+          iris: "#87ceeb",
+          cyan: "#00d4ff",
+          periwinkle: "#d4b5ff",
+        },
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
