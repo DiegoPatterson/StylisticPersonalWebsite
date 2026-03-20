@@ -3,9 +3,22 @@
 import type { ReactNode, FC } from 'react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Brain, Network, Gamepad2, Shield, X } from 'lucide-react';
+import { Brain, Network, Gamepad2, Shield } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
+import SpecialtyDetail from '@/components/sections/SpecialtyDetail';
 import { useHandoffScroll } from '@/hooks/useHandoffScroll';
+
+interface Project {
+  id: string;
+  title: string;
+  number: string;
+  status: string;
+  stack: string[];
+  role: string;
+  description: string;
+  imageUrl?: string;
+  videoUrl?: string;
+}
 
 interface SpecialtyItem {
   icon: ReactNode;
@@ -15,6 +28,8 @@ interface SpecialtyItem {
   accent: string;
   details: string;
   tags: string[];
+  projects: Project[];
+  layoutId: string;
 }
 
 const specialties: SpecialtyItem[] = [
@@ -26,6 +41,27 @@ const specialties: SpecialtyItem[] = [
     accent: 'from-gold-leaf/30 to-transparent',
     details: 'Designing and implementing cutting-edge AI systems that transform business operations. From strategy consulting to deployment, I bridge the gap between technical complexity and business objectives.',
     tags: ['Machine Learning', 'Strategy', 'Implementation'],
+    layoutId: 'card-ai-consulting',
+    projects: [
+      {
+        id: 'ai-1',
+        title: 'Enterprise AI Strategy Framework',
+        number: '01',
+        status: 'COMPLETED',
+        stack: ['Python', 'TensorFlow', 'FastAPI'],
+        role: 'AI Architect & Lead Consultant',
+        description: 'Architected and deployed an enterprise-grade AI consulting framework for strategic business intelligence. Integrated machine learning pipelines with business analytics for actionable insights.',
+      },
+      {
+        id: 'ai-2',
+        title: 'Predictive Analytics Engine',
+        number: '02',
+        status: 'COMPLETED',
+        stack: ['PyTorch', 'PostgreSQL', 'Dashboards'],
+        role: 'Lead Developer',
+        description: 'Built a real-time predictive analytics engine processing 10M+ data points daily. Reduced forecasting error by 40% through advanced ensemble methods.',
+      },
+    ],
   },
   {
     icon: <Gamepad2 className="w-6 h-6" />,
@@ -35,6 +71,27 @@ const specialties: SpecialtyItem[] = [
     accent: 'from-purple-400/30 to-transparent',
     details: 'Leading the Game Design Club with a focus on innovative game mechanics, player experience design, and full-stack game development. From concept to deployment.',
     tags: ['Game Mechanics', 'UX Design', 'Leadership'],
+    layoutId: 'card-game-design',
+    projects: [
+      {
+        id: 'game-1',
+        title: 'Isometric Puzzle Adventure',
+        number: '03',
+        status: 'IN_DEVELOPMENT',
+        stack: ['Unity', 'C#', 'Blender'],
+        role: 'Lead Game Designer & Developer',
+        description: 'Leading development of an atmospheric isometric puzzle game. Designed innovative mechanics combining environmental storytelling with cognitive challenges.',
+      },
+      {
+        id: 'game-2',
+        title: 'Multiplayer Strategy Game',
+        number: '04',
+        status: 'PROTOTYPE',
+        stack: ['Godot', 'GDScript', 'Networking'],
+        role: 'Game Architect',
+        description: 'Prototyping a turn-based multiplayer strategy game with dynamic terrain systems. Focus on emergent gameplay and competitive balance.',
+      },
+    ],
   },
   {
     icon: <Shield className="w-6 h-6" />,
@@ -44,6 +101,27 @@ const specialties: SpecialtyItem[] = [
     accent: 'from-red-400/30 to-transparent',
     details: 'Building secure systems from the ground up. Comprehensive security auditing, threat analysis, and architecture design with zero-trust principles.',
     tags: ['Architecture', 'Auditing', 'Threat Analysis'],
+    layoutId: 'card-cybersecurity',
+    projects: [
+      {
+        id: 'sec-1',
+        title: 'Zero-Trust Security Framework',
+        number: '05',
+        status: 'COMPLETED',
+        stack: ['Kubernetes', 'HashiCorp Vault', 'eBPF'],
+        role: 'Security Architect',
+        description: 'Designed and implemented a zero-trust security architecture for enterprise infrastructure. Reduced unauthorized access attempts by 95% through advanced threat detection.',
+      },
+      {
+        id: 'sec-2',
+        title: 'Penetration Testing Suite',
+        number: '06',
+        status: 'COMPLETED',
+        stack: ['Python', 'Metasploit', 'Burp Suite'],
+        role: 'Lead Security Researcher',
+        description: 'Developed comprehensive penetration testing methodology and automation suite. Identified and remediated critical vulnerabilities across 50+ systems.',
+      },
+    ],
   },
   {
     icon: <Network className="w-6 h-6" />,
@@ -53,12 +131,46 @@ const specialties: SpecialtyItem[] = [
     accent: 'from-cyan-400/30 to-transparent',
     details: 'Developing sophisticated NLP systems and fine-tuning large language models. Focus on practical applications in automation and intelligent analysis.',
     tags: ['NLP', 'LLMs', 'Fine-tuning'],
+    layoutId: 'card-nlp',
+    projects: [
+      {
+        id: 'nlp-1',
+        title: 'Custom LLM Fine-tuning Pipeline',
+        number: '07',
+        status: 'COMPLETED',
+        stack: ['Hugging Face', 'PyTorch', 'Claude API'],
+        role: 'ML Engineer & NLP Specialist',
+        description: 'Built production-grade LLM fine-tuning pipeline for domain-specific applications. Achieved 92% accuracy on specialized NLP tasks with 40% inference speedup.',
+      },
+      {
+        id: 'nlp-2',
+        title: 'Semantic Document Analysis Tool',
+        number: '08',
+        status: 'COMPLETED',
+        stack: ['Transformers', 'Vector DB', 'FastAPI'],
+        role: 'Lead Developer',
+        description: 'Developed semantic search and document analysis tool processing 100K+ documents. Enabled intelligent knowledge extraction and relationship mapping.',
+      },
+    ],
   },
 ];
 
+interface SpecialtyItem {
+  icon: ReactNode;
+  title: string;
+  subtitle: string;
+  description: string;
+  accent: string;
+  details: string;
+  tags: string[];
+  projects: Project[];
+  layoutId: string;
+}
+
 const HeroSwitchboard: FC = () => {
   const scrollProgress = useHandoffScroll(0.4);
-  const [selectedSpecialty, setSelectedSpecialty] = useState<number | null>(null);
+  const [selectedSpecialty, setSelectedSpecialty] = useState<string | null>(null);
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -83,7 +195,11 @@ const HeroSwitchboard: FC = () => {
     },
   };
 
+  const currentSpecialty = specialties.find((s) => s.layoutId === selectedSpecialty);
+
   return (
+    <>
+      {/* Hero Section with Scroll-Triggered Scaling */}
     <motion.section
       className="relative min-h-screen flex flex-col items-center justify-center px-6 py-32 z-20"
       style={{
@@ -134,8 +250,11 @@ const HeroSwitchboard: FC = () => {
               key={index}
               variants={cardVariants}
               whileHover={{ y: -4 }}
-              onClick={() => setSelectedSpecialty(index)}
+              onClick={() => {
+                setSelectedSpecialty(specialty.layoutId);
+              }}
               className="cursor-pointer"
+              layoutId={specialty.layoutId}
             >
               <GlassCard className="p-6 h-full flex flex-col justify-between hover:border-gold-leaf/60 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)]">
                 {/* Icon and Title */}
@@ -183,104 +302,31 @@ const HeroSwitchboard: FC = () => {
           </p>
         </motion.div>
       </div>
-
-      {/* Expanded Modal Overlay */}
-      <AnimatePresence>
-        {selectedSpecialty !== null && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center px-6 py-20 bg-black/60 backdrop-blur-sm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedSpecialty(null)}
-          >
-            <motion.div
-              className="relative w-full max-w-3xl"
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <GlassCard className="p-8 md:p-12">
-                {/* Close Button */}
-                <motion.button
-                  className="absolute top-6 right-6 text-gold-leaf/60 hover:text-gold-leaf transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setSelectedSpecialty(null)}
-                >
-                  <X className="w-6 h-6" />
-                </motion.button>
-
-                {/* Content */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                >
-                  {/* Icon and Title */}
-                  <div className="mb-8">
-                    <motion.div
-                      className="inline-block p-4 rounded border border-gold-leaf/30 mb-6 text-gold-leaf text-2xl"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      {specialties[selectedSpecialty].icon}
-                    </motion.div>
-                    <h2 className="text-4xl font-bold text-white mb-2 font-mono tracking-wide">
-                      {specialties[selectedSpecialty].title}
-                    </h2>
-                    <p className="text-gold-leaf text-sm font-mono tracking-widest mb-6">
-                      {specialties[selectedSpecialty].subtitle}
-                    </p>
-                    <motion.div
-                      className="h-1 w-24 bg-gradient-to-r from-gold-leaf to-transparent rounded-full"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ delay: 0.3 }}
-                      style={{ originX: 0 }}
-                    />
-                  </div>
-
-                  {/* Detailed Description */}
-                  <motion.p
-                    className="text-obsidian-300 text-base leading-relaxed mb-8"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    {specialties[selectedSpecialty].details}
-                  </motion.p>
-
-                  {/* Tags */}
-                  <motion.div
-                    className="flex flex-wrap gap-3"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    {specialties[selectedSpecialty].tags.map((tag, idx) => (
-                      <motion.span
-                        key={idx}
-                        className="px-4 py-2 rounded border border-gold-leaf/40 text-gold-leaf text-xs font-mono tracking-wider uppercase bg-gold-leaf/5 hover:bg-gold-leaf/10 hover:border-gold-leaf/60 transition-all"
-                        whileHover={{ scale: 1.05 }}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 + idx * 0.05 }}
-                      >
-                        {tag}
-                      </motion.span>
-                    ))}
-                  </motion.div>
-                </motion.div>
-              </GlassCard>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.section>
+
+    {/* Specialty Detail Modal - Rendered OUTSIDE transformed parent */}
+    <AnimatePresence>
+      {currentSpecialty && (
+        <SpecialtyDetail
+          icon={currentSpecialty.icon}
+          title={currentSpecialty.title}
+          subtitle={currentSpecialty.subtitle}
+          details={currentSpecialty.details}
+          tags={currentSpecialty.tags}
+          projects={currentSpecialty.projects}
+          layoutId={currentSpecialty.layoutId}
+          selectedProjectId={selectedProjectId}
+          onSelectProject={(projectId) => {
+            setSelectedProjectId(projectId);
+          }}
+          onClose={() => {
+            setSelectedSpecialty(null);
+            setSelectedProjectId(null);
+          }}
+        />
+      )}
+    </AnimatePresence>
+    </>
   );
 };
 
