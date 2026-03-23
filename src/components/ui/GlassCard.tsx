@@ -1,11 +1,9 @@
-//# BLOCK: Glass Card Component
 'use client';
 
 import type { ReactNode, FC } from 'react';
 import { motion, MotionProps } from 'framer-motion';
 import { useTheme } from '@/context/ThemeContext';
 
-//# SUBBLOCK1: Component Props Interface
 interface GlassCardProps extends MotionProps {
   children: ReactNode;
   className?: string;
@@ -15,9 +13,7 @@ interface GlassCardProps extends MotionProps {
 const GlassCard: FC<GlassCardProps> = ({ children, className = '', hoverEffect = true, ...motionProps }) => {
   const { theme } = useTheme();
 
-  //# SUBBLOCK2: Theme-Aware Styling Variables
   const bgGradient = theme === 'dark'
-  //# SUBBLOCK2: Border and Shadow Styling
     ? 'from-obsidian-900/40 to-obsidian-950/60'
     : 'from-diamond-100/60 to-diamond-50/80';
   
@@ -29,8 +25,7 @@ const GlassCard: FC<GlassCardProps> = ({ children, className = '', hoverEffect =
   const hoverShadow = theme === 'dark'
     ? 'hover:shadow-[0_8px_32px_rgba(212,175,55,0.2)]'
     : 'hover:shadow-[0_8px_32px_rgba(122,155,255,0.2)]';
-//# SUBBLOCK2: Render Component Structure
-  
+
   return (
     <motion.div
       className={`
@@ -45,8 +40,7 @@ const GlassCard: FC<GlassCardProps> = ({ children, className = '', hoverEffect =
       whileHover={hoverEffect ? { y: -4 } : {}}
       transition={{ duration: 0.3 }}
       {...motionProps}
-    >{/* SUBBLOCK3: Animated Border Gradient Layer */}
-      
+    >
       {/* Animated border gradient */}
       <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${

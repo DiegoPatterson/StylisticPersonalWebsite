@@ -19,25 +19,24 @@ const Home: FC = () => {
     return null;
   }
 
-  //# SUBBLOCK2: Page Structure and Components
   return (
     <main className="relative w-full overflow-x-hidden bg-obsidian-950">
-      {/* SUBBLOCK3: Neural Network Background */}
+      {/* NeuralBackground */}
       <NeuralBackground />
 
-      {/* SUBBLOCK3: Navigation Component */}
+      {/* Navigation */}
       <Navbar />
 
-      {/* SUBBLOCK3: Hero Switchboard Section */}
+      {/* Hero Section */}
       <HeroSwitchboard />
 
-      {/* SUBBLOCK3: About Me Reveal Section */}
+      {/* About Me Section */}
       <AboutMeReveal />
 
-      {/* SUBBLOCK3: Extra scroll space for effect */}
+      {/* Scroll space */}
       <div className="relative h-96 z-10" />
 
-      {/* Footer Navigation */}
+      {/* Footer */}
       <Footer />
     </main>
   );

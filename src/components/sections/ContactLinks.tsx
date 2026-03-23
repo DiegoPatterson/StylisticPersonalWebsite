@@ -108,6 +108,7 @@ const ContactLinks: FC = () => {
           viewport={{ once: true }}
         >
           {/* Email */}
+          {/* TODO: Replace with your email address */}
           <motion.div variants={itemVariants}>
             <ContactItem
               icon="✉️"
@@ -119,6 +120,7 @@ const ContactLinks: FC = () => {
           </motion.div>
 
           {/* LinkedIn */}
+          {/* TODO: Replace with your LinkedIn profile username/URL */}
           <motion.div variants={itemVariants}>
             <ContactItem
               icon="💼"
@@ -130,6 +132,7 @@ const ContactLinks: FC = () => {
           </motion.div>
 
           {/* GitHub */}
+          {/* TODO: Replace with your GitHub username/URL */}
           <motion.div variants={itemVariants}>
             <ContactItem
               icon="🔧"
@@ -141,6 +144,7 @@ const ContactLinks: FC = () => {
           </motion.div>
 
           {/* Twitter/X */}
+          {/* TODO: Replace with your Twitter/X handle and URL */}
           <motion.div variants={itemVariants}>
             <ContactItem
               icon="𝕏"
@@ -153,6 +157,7 @@ const ContactLinks: FC = () => {
         </motion.div>
 
         {/* Alternative Contact Section */}
+        {/* TODO: Update email address in button below to match your email */}
         <motion.div
           className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t"
           style={{

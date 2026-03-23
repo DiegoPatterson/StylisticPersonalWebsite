@@ -39,6 +39,7 @@ interface SpecialtyItem {
 
 const specialties: SpecialtyItem[] = [
   {
+    // TODO: Update title, subtitle, description, details, and tags with your specialty information
     icon: <Brain className="w-6 h-6" />,
     title: 'AI & CONSULTING',
     subtitle: 'Strategic AI Implementation',
@@ -49,6 +50,7 @@ const specialties: SpecialtyItem[] = [
     layoutId: 'card-ai-consulting',
     projects: [
       {
+        // TODO: Replace with your actual project
         id: 'ai-1',
         title: 'Enterprise AI Strategy Framework',
         number: '01',
@@ -58,6 +60,7 @@ const specialties: SpecialtyItem[] = [
         description: 'Architected and deployed an enterprise-grade AI consulting framework for strategic business intelligence. Integrated machine learning pipelines with business analytics for actionable insights.',
       },
       {
+        // TODO: Replace with your actual project
         id: 'ai-2',
         title: 'Predictive Analytics Engine',
         number: '02',
@@ -69,6 +72,7 @@ const specialties: SpecialtyItem[] = [
     ],
   },
   {
+    // TODO: Update title, subtitle, description, details, and tags with your specialty information
     icon: <Gamepad2 className="w-6 h-6" />,
     title: 'GAME DESIGN',
     subtitle: 'Creative Leadership',
@@ -79,6 +83,7 @@ const specialties: SpecialtyItem[] = [
     layoutId: 'card-game-design',
     projects: [
       {
+        // TODO: Replace with your actual project
         id: 'game-1',
         title: 'Isometric Puzzle Adventure',
         number: '03',
@@ -88,6 +93,7 @@ const specialties: SpecialtyItem[] = [
         description: 'Leading development of an atmospheric isometric puzzle game. Designed innovative mechanics combining environmental storytelling with cognitive challenges.',
       },
       {
+        // TODO: Replace with your actual project
         id: 'game-2',
         title: 'Multiplayer Strategy Game',
         number: '04',
@@ -99,6 +105,7 @@ const specialties: SpecialtyItem[] = [
     ],
   },
   {
+    // TODO: Update title, subtitle, description, details, and tags with your specialty information
     icon: <Shield className="w-6 h-6" />,
     title: 'CYBERSECURITY',
     subtitle: 'Defensive Architecture',
@@ -109,6 +116,7 @@ const specialties: SpecialtyItem[] = [
     layoutId: 'card-cybersecurity',
     projects: [
       {
+        // TODO: Replace with your actual project
         id: 'sec-1',
         title: 'Zero-Trust Security Framework',
         number: '05',
@@ -118,6 +126,7 @@ const specialties: SpecialtyItem[] = [
         description: 'Designed and implemented a zero-trust security architecture for enterprise infrastructure. Reduced unauthorized access attempts by 95% through advanced threat detection.',
       },
       {
+        // TODO: Replace with your actual project
         id: 'sec-2',
         title: 'Penetration Testing Suite',
         number: '06',
@@ -129,6 +138,7 @@ const specialties: SpecialtyItem[] = [
     ],
   },
   {
+    // TODO: Update title, subtitle, description, details, and tags with your specialty information
     icon: <Network className="w-6 h-6" />,
     title: 'NLP & AI DEVELOPMENT',
     subtitle: 'Language Models & Automation',
@@ -139,6 +149,7 @@ const specialties: SpecialtyItem[] = [
     layoutId: 'card-nlp',
     projects: [
       {
+        // TODO: Replace with your actual project
         id: 'nlp-1',
         title: 'Custom LLM Fine-tuning Pipeline',
         number: '07',
@@ -148,6 +159,7 @@ const specialties: SpecialtyItem[] = [
         description: 'Built production-grade LLM fine-tuning pipeline for domain-specific applications. Achieved 92% accuracy on specialized NLP tasks with 40% inference speedup.',
       },
       {
+        // TODO: Replace with your actual project
         id: 'nlp-2',
         title: 'Semantic Document Analysis Tool',
         number: '08',
@@ -226,6 +238,7 @@ const HeroSwitchboard: FC = () => {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tighter"
             variants={cardVariants}
           >
+            {/* TODO: Replace 'DIEGO.' with your name */}
             <span className={`text-transparent bg-clip-text bg-gradient-to-r ${theme === 'dark' ? 'from-gold-leaf via-gold-leaf to-gold-leaf/70' : 'from-diamond-600 via-diamond-600 to-diamond-500'}`}>
               DIEGO.
             </span>
@@ -235,6 +248,7 @@ const HeroSwitchboard: FC = () => {
             className={`${theme === 'dark' ? 'text-gold-leaf' : 'text-diamond-800'} font-mono text-[10px] sm:text-xs md:text-sm tracking-widest uppercase mb-8`}
             variants={cardVariants}
           >
+            {/* TODO: Update system status with your role/expertise */}
             // SYSTEM STATUS: OPERATIONAL. MULTI-DISCIPLINARY CS & AI CONSULTANT
           </motion.p>
 

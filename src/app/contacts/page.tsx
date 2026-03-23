@@ -2,7 +2,6 @@
 
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
-import { useTheme } from '@/context/ThemeContext';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import NeuralBackground from '@/components/ui/NeuralBackground';
@@ -10,7 +9,6 @@ import ContactLinks from '@/components/sections/ContactLinks';
 
 const ContactsPage: FC = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -20,10 +18,8 @@ const ContactsPage: FC = () => {
     return null;
   }
 
-  const bgColor = theme === 'dark' ? 'bg-obsidian-950' : 'bg-diamond-50';
-
   return (
-    <main className={`relative w-full overflow-x-hidden ${bgColor}`}>
+    <main className="relative w-full overflow-x-hidden bg-obsidian-950 dark:bg-obsidian-950 light:bg-diamond-50">
       {/* Neural Network Background */}
       <NeuralBackground />
 

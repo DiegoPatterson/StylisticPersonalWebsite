@@ -1,4 +1,3 @@
-//# BLOCK: Specialty Detail Modal Component
 'use client';
 
 import type { FC } from 'react';
@@ -8,7 +7,6 @@ import { X, ChevronLeft } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext';
 import GlassCard from '@/components/ui/GlassCard';
 
-//# SUBBLOCK1: Project Type Definition
 interface Project {
   id: string;
   title: string;
@@ -33,7 +31,6 @@ interface SpecialtyDetailProps {
   selectedProjectId: string | null;
   layoutId: string;
 }
-//# SUBBLOCK1: SpecialtyDetail Component Definition
 const SpecialtyDetail: FC<SpecialtyDetailProps> = ({
   icon,
   title,
@@ -46,10 +43,7 @@ const SpecialtyDetail: FC<SpecialtyDetailProps> = ({
   selectedProjectId,
   layoutId,
 }) => {
-  //# SUBBLOCK2: Get Theme Config
   const { theme } = useTheme();
-
-  //# SUBBLOCK2: Theme Color Configuration  const { theme } = useTheme();
 
   // Theme colors
   const accentColor = theme === 'dark' ? 'text-gold-leaf' : 'text-diamond-800';

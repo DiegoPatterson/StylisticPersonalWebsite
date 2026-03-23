@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext';
 
-//# SUBBLOCK1: Project Type Definition
 interface Project {
   id: string;
   title: string;
@@ -38,12 +37,8 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
   layoutId,
 }) => {
   const { theme } = useTheme();
-  
-  //# SUBBLOCK2: Component Notes
-  // NOTE: Scroll locking is handled by parent SpecialtyDetail modal
-  // Do not override parent's scroll lock to avoid conflicts
 
-  //# SUBBLOCK2: Theme Color Configuration  // Do not override parent's scroll lock to avoid conflicts
+  // NOTE: Scroll locking is handled by parent SpecialtyDetail modal
 
   const bgColor = theme === 'dark' ? 'bg-obsidian-950/95' : 'bg-diamond-50/95';
   const borderColor = theme === 'dark' ? 'border-gold-leaf/30' : 'border-diamond-600/30';

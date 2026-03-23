@@ -16,7 +16,6 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>('dark');
   const [mounted, setMounted] = useState(false);
 
-  //# SUBBLOCK2: Initialize Theme from Storage or System Preference
   useEffect(() => {
     // Get theme from localStorage or system preference
     const savedTheme = localStorage.getItem('theme') as Theme | null;
@@ -28,8 +27,7 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
     }
     setMounted(true);
   }, []);
-//# SUBBLOCK2: Apply Theme to Document and localStorage
-  
+
   useEffect(() => {
     if (!mounted) return;
 
@@ -44,11 +42,10 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
       htmlElement.classList.remove('light');
     }
   }, [theme, mounted]);
+
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
   };
-
-  //# SUBBLOCK2: Hydration Safety Check  };
 
   // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
@@ -59,7 +56,6 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
-//# SUBBLOCK1: Custom Hook - useTheme
   );
 };
 

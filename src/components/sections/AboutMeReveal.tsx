@@ -10,9 +10,7 @@ const AboutMeReveal: FC = () => {
   const scrollProgress = useHandoffScroll(0.4);
   const { theme } = useTheme();
 
-  // TODO: accentColor in light mode uses diamond-600 which is unreadable on light backgrounds
-  // Affects "HUMAN PROTOCOL ACTIVATED..." text and all accent labels below
-  // Consider using darker color like diamond-800 or diamond-900 for light mode
+  // TODO: accentColor in light mode needs darker color for readability
   const accentColor = theme === 'dark' ? 'gold-leaf' : 'diamond-600';
   const borderColor = theme === 'dark' ? 'border-gold-leaf/20' : 'border-diamond-600/20';
   const cornerBorderColor = theme === 'dark' ? 'border-gold-leaf/60' : 'border-diamond-600/60';
@@ -90,6 +88,7 @@ const AboutMeReveal: FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
+                  {/* TODO: Replace with your name */}
                   DIEGO.
                 </motion.h2>
                 <motion.p
@@ -98,6 +97,7 @@ const AboutMeReveal: FC = () => {
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
+                  {/* TODO: Update specialties/role description */}
                   <span className={theme === 'dark' ? 'text-gold-leaf/50' : 'text-diamond-800/40'}>// </span>
                   <span className={theme === 'dark' ? 'text-gold-leaf font-bold' : 'text-diamond-800 font-bold'}>HUMAN PROTOCOL</span>
                   <span className={theme === 'dark' ? 'text-gold-leaf/70' : 'text-diamond-800/70'}> ACTIVATED. </span>
@@ -122,6 +122,7 @@ const AboutMeReveal: FC = () => {
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
                   <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>ROLE:</span>
+                  {/* TODO: Update with your role/position */}
                   <span className={secondaryTextColor}>CS Student & AI Consultant</span>
                 </motion.div>
 
@@ -132,6 +133,7 @@ const AboutMeReveal: FC = () => {
                   transition={{ duration: 0.5, delay: 0.45 }}
                 >
                   <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>LOCATION:</span>
+                  {/* TODO: Update with your location */}
                   <span className={secondaryTextColor}>Riverside, California, US</span>
                 </motion.div>
 
@@ -142,6 +144,7 @@ const AboutMeReveal: FC = () => {
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
                   <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>YEAR:</span>
+                  {/* TODO: Update with your current year/class */}
                   <span className={secondaryTextColor}>4th (Senior)</span>
                 </motion.div>
 
@@ -152,6 +155,7 @@ const AboutMeReveal: FC = () => {
                   transition={{ duration: 0.5, delay: 0.55 }}
                 >
                   <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>HEIGHT:</span>
+                  {/* TODO: Update with your height (optional field) */}
                   <span className={secondaryTextColor}>6' 3" (190 cm)</span>
                 </motion.div>
 
@@ -162,6 +166,7 @@ const AboutMeReveal: FC = () => {
                   transition={{ duration: 0.5, delay: 0.6 }}
                 >
                   <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>SPECIALTIES:</span>
+                  {/* TODO: Update with your areas of expertise */}
                   <span className={secondaryTextColor}>
                     NLP, LLMs, Game Design,<br />
                     Cybersecurity Architecture
@@ -175,11 +180,13 @@ const AboutMeReveal: FC = () => {
                   transition={{ duration: 0.5, delay: 0.65 }}
                 >
                   <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>STATUS:</span>
+                  {/* TODO: Update availability status */}
                   <span className={secondaryTextColor}>Available for Select Engagements</span>
                 </motion.div>
               </div>
 
               {/* Bio */}
+              {/* TODO: Update bio with your own information and achievements */}
               <motion.p
                 className={`text-xs sm:text-sm leading-relaxed pt-4 sm:pt-6 ${theme === 'dark' ? 'text-obsidian-300 border-gold-leaf/20' : 'text-diamond-900/80 border-diamond-600/20'} border-t`}
                 initial={{ opacity: 0 }}
