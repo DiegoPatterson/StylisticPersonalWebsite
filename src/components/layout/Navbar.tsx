@@ -62,11 +62,11 @@ const Navbar: FC = () => {
         
         {/* Centered System Status Display */}
         <motion.div
-          className={`absolute left-1/2 -translate-x-1/2 flex items-center gap-2 text-xs font-mono ${theme === 'dark' ? 'text-obsidian-300' : 'text-diamond-900/70'}`}
+          className={`absolute left-1/2 -translate-x-1/2 hidden sm:flex items-center gap-2 text-[10px] md:text-xs font-mono ${theme === 'dark' ? 'text-obsidian-300' : 'text-diamond-900/70'} whitespace-nowrap`}
           animate={{ opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: statusColor }} />
+          <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: statusColor }} />
           <span style={{ color: statusColor }}>{systemStatus}</span>
         </motion.div>
 

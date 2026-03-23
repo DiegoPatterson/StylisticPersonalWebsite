@@ -27,7 +27,7 @@ const AboutMeReveal: FC = () => {
 
   return (
     <motion.section
-      className="relative w-full min-h-screen flex items-center justify-center px-6 py-20 z-30 mb-20"
+      className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-20 z-30 mb-20"
       style={{
         opacity: scrollProgress.isAboutVisible ? 1 : 0,
         pointerEvents: scrollProgress.isAboutVisible ? 'auto' : 'none',
@@ -36,10 +36,10 @@ const AboutMeReveal: FC = () => {
     >
       <div className="w-full max-w-6xl">
         <GlassCard className="overflow-hidden">
-          <div className="grid grid-cols-2 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* Left: Profile Image with HUD Border */}
             <motion.div
-              className={`relative h-96 lg:h-full min-h-96 flex items-center justify-center p-8 lg:p-12 ${borderColor} border-b lg:border-b-0 lg:border-r`}
+              className={`relative h-64 sm:h-96 md:h-full min-h-64 flex items-center justify-center p-4 sm:p-8 lg:p-12 ${borderColor} border-b md:border-b-0 md:border-r`}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -50,21 +50,21 @@ const AboutMeReveal: FC = () => {
                 <div className={`absolute inset-0 border-2 ${cornerHoverColor} rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 
                 {/* Corner Accents */}
-                <div className={`absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 ${cornerBorderColor}`} />
-                <div className={`absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 ${cornerBorderColor}`} />
-                <div className={`absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 ${cornerBorderColor}`} />
-                <div className={`absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 ${cornerBorderColor}`} />
+                <div className={`absolute top-3 left-3 sm:top-4 sm:left-4 w-4 h-4 sm:w-6 sm:h-6 border-t-2 border-l-2 ${cornerBorderColor}`} />
+                <div className={`absolute top-3 right-3 sm:top-4 sm:right-4 w-4 h-4 sm:w-6 sm:h-6 border-t-2 border-r-2 ${cornerBorderColor}`} />
+                <div className={`absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-4 h-4 sm:w-6 sm:h-6 border-b-2 border-l-2 ${cornerBorderColor}`} />
+                <div className={`absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-4 h-4 sm:w-6 sm:h-6 border-b-2 border-r-2 ${cornerBorderColor}`} />
 
                 {/* Image Placeholder - Replace with actual image */}
                 <motion.div
-                  className={`relative w-64 h-64 rounded-lg overflow-hidden bg-gradient-to-br ${bgGradient} ${bgBorder} border flex items-center justify-center`}
+                  className={`relative w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-lg overflow-hidden bg-gradient-to-br ${bgGradient} ${bgBorder} border flex items-center justify-center`}
                   animate={{ borderColor: theme === 'dark' 
                     ? ['rgba(212,175,55,0.3)', 'rgba(212,175,55,0.6)', 'rgba(212,175,55,0.3)']
                     : ['rgba(122,155,255,0.3)', 'rgba(122,155,255,0.6)', 'rgba(122,155,255,0.3)']
                   }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
-                  <div className={`text-7xl font-bold ${accentColor}/75`}>D</div>
+                  <div className={`text-5xl sm:text-6xl lg:text-7xl font-bold ${accentColor}/75`}>D</div>
                 </motion.div>
 
                 {/* Scan Line Effect */}
@@ -77,15 +77,15 @@ const AboutMeReveal: FC = () => {
             </motion.div>
             {/* Right: Information Panel */}
             <motion.div
-              className="p-8 lg:p-12 flex flex-col justify-between"
+              className="p-4 sm:p-8 lg:p-12 flex flex-col justify-between"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               {/* Header */}
-              <div className="mb-8">
+              <div className="mb-6 sm:mb-8">
                 <motion.h2
-                  className={`text-3xl lg:text-4xl font-bold ${textColor} mb-2 tracking-tight`}
+                  className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${textColor} mb-2 tracking-tight`}
                   initial={{ opacity: 0, y: -10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -114,14 +114,14 @@ const AboutMeReveal: FC = () => {
               </div>
 
               {/* Key Information */}
-              <div className="space-y-5 mb-8 text-sm">
+              <div className="space-y-3 sm:space-y-5 mb-6 sm:mb-8 text-xs sm:text-sm">
                 <motion.div
                   className="flex items-baseline gap-4"
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-24' : 'text-diamond-800 font-mono font-bold min-w-24'}>ROLE:</span>
+                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>ROLE:</span>
                   <span className={secondaryTextColor}>CS Student & AI Consultant</span>
                 </motion.div>
 
@@ -131,7 +131,7 @@ const AboutMeReveal: FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.45 }}
                 >
-                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-24' : 'text-diamond-800 font-mono font-bold min-w-24'}>LOCATION:</span>
+                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>LOCATION:</span>
                   <span className={secondaryTextColor}>Riverside, California, US</span>
                 </motion.div>
 
@@ -141,7 +141,7 @@ const AboutMeReveal: FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-24' : 'text-diamond-800 font-mono font-bold min-w-24'}>YEAR:</span>
+                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>YEAR:</span>
                   <span className={secondaryTextColor}>4th (Senior)</span>
                 </motion.div>
 
@@ -151,7 +151,7 @@ const AboutMeReveal: FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.55 }}
                 >
-                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-24' : 'text-diamond-800 font-mono font-bold min-w-24'}>HEIGHT:</span>
+                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>HEIGHT:</span>
                   <span className={secondaryTextColor}>6' 3" (190 cm)</span>
                 </motion.div>
 
@@ -161,7 +161,7 @@ const AboutMeReveal: FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.6 }}
                 >
-                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-24' : 'text-diamond-800 font-mono font-bold min-w-24'}>SPECIALTIES:</span>
+                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>SPECIALTIES:</span>
                   <span className={secondaryTextColor}>
                     NLP, LLMs, Game Design,<br />
                     Cybersecurity Architecture
@@ -174,14 +174,14 @@ const AboutMeReveal: FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.65 }}
                 >
-                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-24' : 'text-diamond-800 font-mono font-bold min-w-24'}>STATUS:</span>
+                  <span className={theme === 'dark' ? 'text-gold-leaf font-mono font-bold min-w-20 sm:min-w-24' : 'text-diamond-800 font-mono font-bold min-w-20 sm:min-w-24'}>STATUS:</span>
                   <span className={secondaryTextColor}>Available for Select Engagements</span>
                 </motion.div>
               </div>
 
               {/* Bio */}
               <motion.p
-                className={`text-sm leading-relaxed pt-6 ${theme === 'dark' ? 'text-obsidian-300 border-gold-leaf/20' : 'text-diamond-900/80 border-diamond-600/20'} border-t`}
+                className={`text-xs sm:text-sm leading-relaxed pt-4 sm:pt-6 ${theme === 'dark' ? 'text-obsidian-300 border-gold-leaf/20' : 'text-diamond-900/80 border-diamond-600/20'} border-t`}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}

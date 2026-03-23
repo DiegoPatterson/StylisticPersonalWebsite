@@ -64,7 +64,7 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
   return (
     <motion.div
       layoutId={layoutId}
-      className="fixed inset-0 z-[60] flex items-center justify-center p-6 bg-black/40"
+      className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-6 bg-black/40"
       onClick={onClose}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -72,7 +72,7 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
       transition={{ duration: 0.3 }}
     >
       <motion.div
-        className={`relative w-full max-w-7xl max-h-[90vh] ${bgColor} backdrop-blur-2xl border ${borderColor} rounded-xl overflow-hidden`}
+        className={`relative w-full max-w-7xl max-h-[95vh] sm:max-h-[90vh] ${bgColor} backdrop-blur-2xl border ${borderColor} rounded-lg sm:rounded-xl overflow-hidden`}
         onClick={(e) => e.stopPropagation()}
         initial={{ scale: 0.9 }}
         animate={{ scale: 1 }}
@@ -93,14 +93,14 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
 
         {/* Header */}
         <motion.div
-          className={`relative z-20 flex items-center justify-between p-8 border-b ${borderAccent}`}
+          className={`relative z-20 flex items-center justify-between gap-3 sm:gap-4 p-4 sm:p-8 border-b ${borderAccent}`}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.3 }}
         >
-          <div>
+          <div className="min-w-0 flex-1">
             <motion.p
-              className={`${accentColor} font-mono text-xs tracking-widest`}
+              className={`${accentColor} font-mono text-[9px] sm:text-xs tracking-widest truncate`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -111,7 +111,7 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
 
           <motion.button
             onClick={onClose}
-            className={`${accentColorSecondary} hover:${theme === 'dark' ? 'text-gold-leaf' : 'text-diamond-800'} transition-colors`}
+            className={`${accentColorSecondary} hover:${theme === 'dark' ? 'text-gold-leaf' : 'text-diamond-800'} transition-colors flex-shrink-0`}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -121,12 +121,12 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
 
         {/* Content Grid */}
         <motion.div
-          className="relative z-20 p-8 overflow-y-auto max-h-[calc(90vh-120px)]"
+          className="relative z-20 p-4 sm:p-8 overflow-y-auto max-h-[calc(95vh-120px)] sm:max-h-[calc(90vh-120px)]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15, duration: 0.3 }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8">
             {/* Visual Column (7 cols) */}
             <motion.div
               className="lg:col-span-7"
@@ -168,14 +168,14 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
 
             {/* Data Column (5 cols) */}
             <motion.div
-              className="lg:col-span-5 space-y-8"
+              className="lg:col-span-5 space-y-4 sm:space-y-8"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.25, duration: 0.3 }}
             >
               {/* Project Name */}
               <motion.h2
-                className={`text-4xl font-bold ${accentColor} font-serif tracking-tight`}
+                className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${accentColor} font-serif tracking-tight`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.3 }}
@@ -185,28 +185,28 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
 
               {/* Technical Brief */}
               <motion.div
-                className="space-y-3 text-sm font-mono"
+                className="space-y-2 sm:space-y-3 text-xs sm:text-sm font-mono"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.35, duration: 0.3 }}
               >
-                <div className={`flex gap-4 border-l ${theme === 'dark' ? 'border-gold-leaf/40' : 'border-diamond-600/40'} pl-4 ${textSecondary}`}>
-                  <span className={`${accentColor} font-bold min-w-28`}>STATUS:</span>
-                  <span>{project.status}</span>
+                <div className={`flex gap-2 sm:gap-4 border-l ${theme === 'dark' ? 'border-gold-leaf/40' : 'border-diamond-600/40'} pl-3 sm:pl-4 ${textSecondary}`}>
+                  <span className={`${accentColor} font-bold min-w-20 sm:min-w-28`}>STATUS:</span>
+                  <span className="break-words">{project.status}</span>
                 </div>
-                <div className={`flex gap-4 border-l ${theme === 'dark' ? 'border-gold-leaf/40' : 'border-diamond-600/40'} pl-4 ${textSecondary}`}>
-                  <span className={`${accentColor} font-bold min-w-28`}>STACK:</span>
-                  <span>{project.stack.join(' / ')}</span>
+                <div className={`flex gap-2 sm:gap-4 border-l ${theme === 'dark' ? 'border-gold-leaf/40' : 'border-diamond-600/40'} pl-3 sm:pl-4 ${textSecondary}`}>
+                  <span className={`${accentColor} font-bold min-w-20 sm:min-w-28 flex-shrink-0`}>STACK:</span>
+                  <span className="break-words">{project.stack.join(' / ')}</span>
                 </div>
-                <div className={`flex gap-4 border-l ${theme === 'dark' ? 'border-gold-leaf/40' : 'border-diamond-600/40'} pl-4 ${textSecondary}`}>
-                  <span className={`${accentColor} font-bold min-w-28`}>ROLE:</span>
-                  <span>{project.role}</span>
+                <div className={`flex gap-2 sm:gap-4 border-l ${theme === 'dark' ? 'border-gold-leaf/40' : 'border-diamond-600/40'} pl-3 sm:pl-4 ${textSecondary}`}>
+                  <span className={`${accentColor} font-bold min-w-20 sm:min-w-28 flex-shrink-0`}>ROLE:</span>
+                  <span className="break-words">{project.role}</span>
                 </div>
               </motion.div>
 
               {/* Description */}
               <motion.p
-                className={`${textSecondary} leading-relaxed text-base`}
+                className={`${textSecondary} leading-relaxed text-xs sm:text-base`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.3 }}
@@ -220,7 +220,7 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
         {/* Navigation Footer */}
         {(hasNext || hasPrev) && (
           <motion.div
-            className={`relative z-20 flex items-center justify-between px-8 py-6 border-t ${borderAccent}`}
+            className={`relative z-20 flex items-center justify-between px-4 sm:px-8 py-4 sm:py-6 border-t ${borderAccent}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.45, duration: 0.3 }}
@@ -228,7 +228,7 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
             <motion.button
               onClick={onPrev}
               disabled={!hasPrev}
-              className={`font-mono text-sm ${
+              className={`font-mono text-xs sm:text-sm ${
                 hasPrev
                   ? `${accentColorSecondary} hover:${theme === 'dark' ? 'text-gold-leaf' : 'text-diamond-800'} cursor-pointer`
                   : `${theme === 'dark' ? 'text-obsidian-600' : 'text-diamond-300'} cursor-not-allowed`
@@ -236,13 +236,13 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
               whileHover={hasPrev ? { scale: 1.1 } : {}}
               whileTap={hasPrev ? { scale: 0.95 } : {}}
             >
-              &lt;&lt; PREVIOUS
+              &lt;&lt; <span className="hidden sm:inline">PREVIOUS</span>
             </motion.button>
 
             <motion.button
               onClick={onNext}
               disabled={!hasNext}
-              className={`font-mono text-sm ${
+              className={`font-mono text-xs sm:text-sm ${
                 hasNext
                   ? `${accentColorSecondary} hover:${theme === 'dark' ? 'text-gold-leaf' : 'text-diamond-800'} cursor-pointer`
                   : `${theme === 'dark' ? 'text-obsidian-600' : 'text-diamond-300'} cursor-not-allowed`
@@ -250,7 +250,7 @@ const ProjectDossier: FC<ProjectDossierProps> = ({
               whileHover={hasNext ? { scale: 1.1 } : {}}
               whileTap={hasNext ? { scale: 0.95 } : {}}
             >
-              NEXT &gt;&gt;
+              <span className="hidden sm:inline">NEXT </span>&gt;&gt;
             </motion.button>
           </motion.div>
         )}

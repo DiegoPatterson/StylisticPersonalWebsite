@@ -29,20 +29,20 @@ const ContactItem: FC<ContactItemProps> = ({ icon, label, value, href, descripti
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      <GlassCard className="p-6 backdrop-blur-md cursor-pointer">
-        <div className="flex items-start gap-4">
-          <div className={`text-3xl ${iconColor} flex-shrink-0 mt-1`}>
+      <GlassCard className="p-4 sm:p-6 backdrop-blur-md cursor-pointer">
+        <div className="flex items-start gap-3 sm:gap-4">
+          <div className={`text-2xl sm:text-3xl ${iconColor} flex-shrink-0 mt-1`}>
             {icon}
           </div>
           <div className="flex-1 min-w-0">
             <div className={`text-xs font-mono tracking-wider ${labelColor} mb-1`}>
               {label}
             </div>
-            <div className={`text-lg font-semibold ${textColor} break-all`}>
+            <div className={`text-base sm:text-lg font-semibold ${textColor} break-all`}>
               {value}
             </div>
             {description && (
-              <div className={`text-sm ${descColor} mt-2`}>
+              <div className={`text-xs sm:text-sm ${descColor} mt-2`}>
                 {description}
               </div>
             )}
@@ -81,20 +81,20 @@ const ContactLinks: FC = () => {
   };
 
   return (
-    <section className="relative py-20 px-6">
+    <section className="relative py-16 sm:py-20 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${headingColor}`}>
+          <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 ${headingColor}`}>
             Let's <span className={accentColor}>Connect</span>
           </h1>
-          <p className={`text-lg ${subtextColor}`}>
+          <p className={`text-base sm:text-lg ${subtextColor}`}>
             Ready to collaborate, discuss ideas, or just say hello?
           </p>
         </motion.div>
@@ -154,7 +154,7 @@ const ContactLinks: FC = () => {
 
         {/* Alternative Contact Section */}
         <motion.div
-          className="mt-16 pt-12 border-t"
+          className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t"
           style={{
             borderColor: theme === 'dark' ? 'rgba(212, 175, 55, 0.1)' : 'rgba(122, 155, 255, 0.1)',
           }}
@@ -163,16 +163,16 @@ const ContactLinks: FC = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <GlassCard className="p-8 text-center">
-            <h2 className={`text-2xl font-bold mb-4 ${headingColor}`}>
+          <GlassCard className="p-6 sm:p-8 text-center">
+            <h2 className={`text-xl sm:text-2xl font-bold mb-3 sm:mb-4 ${headingColor}`}>
               Prefer Email?
             </h2>
-            <p className={`${subtextColor} mb-6`}>
+            <p className={`${subtextColor} mb-4 sm:mb-6 text-sm sm:text-base`}>
               Send me a message directly. I typically respond within 24-48 hours.
             </p>
             <motion.a
               href="mailto:diego@example.com"
-              className={`inline-block px-8 py-3 rounded-lg font-semibold transition-all ${
+              className={`inline-block px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all ${
                 theme === 'dark'
                   ? 'bg-gold-leaf/20 text-gold-leaf border border-gold-leaf/40 hover:bg-gold-leaf/30'
                   : 'bg-diamond-600/20 text-diamond-600 border border-diamond-600/40 hover:bg-diamond-600/30'

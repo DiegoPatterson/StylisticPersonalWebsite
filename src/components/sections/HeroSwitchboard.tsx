@@ -207,7 +207,7 @@ const HeroSwitchboard: FC = () => {
     <>
       {/* Hero Section with Scroll-Triggered Scaling */}
     <motion.section
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-32 z-20"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-20 sm:py-32 z-20"
       style={{
         scale: scrollProgress.switchboardScale,
         opacity: scrollProgress.switchboardOpacity,
@@ -217,13 +217,13 @@ const HeroSwitchboard: FC = () => {
       <div className="w-full max-w-6xl">
         {/* Header - System Status */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tighter"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tighter"
             variants={cardVariants}
           >
             <span className={`text-transparent bg-clip-text bg-gradient-to-r ${theme === 'dark' ? 'from-gold-leaf via-gold-leaf to-gold-leaf/70' : 'from-diamond-600 via-diamond-600 to-diamond-500'}`}>
@@ -232,7 +232,7 @@ const HeroSwitchboard: FC = () => {
           </motion.h1>
           
           <motion.p
-            className={`${theme === 'dark' ? 'text-gold-leaf' : 'text-diamond-800'} font-mono text-xs md:text-sm tracking-widest uppercase mb-8`}
+            className={`${theme === 'dark' ? 'text-gold-leaf' : 'text-diamond-800'} font-mono text-[10px] sm:text-xs md:text-sm tracking-widest uppercase mb-8`}
             variants={cardVariants}
           >
             // SYSTEM STATUS: OPERATIONAL. MULTI-DISCIPLINARY CS & AI CONSULTANT

@@ -101,7 +101,7 @@ const SpecialtyDetail: FC<SpecialtyDetailProps> = ({
       {/* Fixed Close Button - Top Right */}
       <motion.button
         onClick={onClose}
-        className={`fixed top-20 right-8 z-40 ${accentColor}/60 hover:${accentColor} transition-colors`}
+        className={`fixed top-16 right-4 sm:top-20 sm:right-8 z-40 ${accentColor}/60 hover:${accentColor} transition-colors`}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         title="Close (ESC)"
@@ -112,7 +112,7 @@ const SpecialtyDetail: FC<SpecialtyDetailProps> = ({
       {/* Back Button - Top Left */}
       <motion.button
         onClick={onClose}
-        className={`fixed top-20 left-8 z-40 flex items-center gap-2 ${accentColor}/60 hover:${accentColor} transition-colors font-mono text-sm tracking-wider`}
+        className={`fixed top-16 left-4 sm:top-20 sm:left-8 z-40 flex items-center gap-2 ${accentColor}/60 hover:${accentColor} transition-colors font-mono text-xs sm:text-sm tracking-wider`}
         whileHover={{ scale: 1.05, x: -5 }}
         whileTap={{ scale: 0.95 }}
         title="Go back (ESC)"
@@ -123,20 +123,20 @@ const SpecialtyDetail: FC<SpecialtyDetailProps> = ({
 
       {/* Specialty Header - First Tile (Full viewport height) */}
       <motion.section
-        className={`relative min-h-screen flex flex-col items-center justify-center px-6 py-32 pt-24 border-b ${accentBorder}`}
+        className={`relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-24 sm:py-32 pt-20 sm:pt-24 border-b ${accentBorder}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
       >
         <div className="w-full max-w-3xl">
           <motion.div
-            className="flex items-start gap-6 mb-12"
+            className="flex items-start gap-4 sm:gap-6 mb-8 sm:mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
             <motion.div
-              className={`inline-block p-4 rounded border ${theme === 'dark' ? 'border-gold-leaf/30 text-gold-leaf' : 'border-diamond-800/30 text-diamond-800'} text-4xl flex-shrink-0`}
+              className={`inline-block p-2 sm:p-4 rounded border ${theme === 'dark' ? 'border-gold-leaf/30 text-gold-leaf' : 'border-diamond-800/30 text-diamond-800'} text-2xl sm:text-4xl flex-shrink-0`}
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3 }}
@@ -145,7 +145,7 @@ const SpecialtyDetail: FC<SpecialtyDetailProps> = ({
             </motion.div>
             <div>
               <motion.h1
-                className={`text-5xl md:text-6xl font-bold ${textColor} mb-3 font-mono tracking-wide`}
+                className={`text-3xl sm:text-5xl md:text-6xl font-bold ${textColor} mb-3 font-mono tracking-wide`}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
