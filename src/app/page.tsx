@@ -3,6 +3,7 @@
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import NeuralBackground from '@/components/ui/NeuralBackground';
 import HeroSwitchboard from '@/components/sections/HeroSwitchboard';
 import AboutMeReveal from '@/components/sections/AboutMeReveal';
@@ -35,6 +36,9 @@ const Home: FC = () => {
 
       {/* SUBBLOCK3: Extra scroll space for effect */}
       <div className="relative h-96 z-10" />
+
+      {/* Footer Navigation */}
+      <Footer />
     </main>
   );
 };

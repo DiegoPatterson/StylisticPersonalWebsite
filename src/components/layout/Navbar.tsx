@@ -46,7 +46,7 @@ const Navbar: FC = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo/Branding */}
         <motion.div
-          className="flex items-center gap-3"
+          className="flex items-center gap-3 flex-shrink-0"
           whileHover={{ scale: 1.05 }}
         >
           <div className="relative">
@@ -59,16 +59,19 @@ const Navbar: FC = () => {
             <span className={textSecondary}>.SYS</span>
           </div>
         </motion.div>
-        {/* System Status Display */}
+        
+        {/* Centered System Status Display */}
         <motion.div
-          className={`hidden sm:flex items-center gap-2 text-xs font-mono ${theme === 'dark' ? 'text-obsidian-300' : 'text-diamond-900/70'}`}
+          className={`absolute left-1/2 -translate-x-1/2 flex items-center gap-2 text-xs font-mono ${theme === 'dark' ? 'text-obsidian-300' : 'text-diamond-900/70'}`}
           animate={{ opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           <div className="w-2 h-2 rounded-full" style={{ backgroundColor: statusColor }} />
           <span style={{ color: statusColor }}>{systemStatus}</span>
         </motion.div>
-        <motion.div className="flex items-center gap-4">
+
+        {/* Right Controls */}
+        <motion.div className="flex items-center gap-4 flex-shrink-0">
           {/* Scroll Progress */}
           <div className="hidden sm:flex items-center gap-2">
             <span className={`text-xs font-mono ${textSecondary}`}>
